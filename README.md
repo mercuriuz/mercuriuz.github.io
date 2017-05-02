@@ -1,2 +1,2 @@
 # mercuriuz.github.io
-GitHub Pages for my private blogs.
+GitHub Pages for my personal blogs.
