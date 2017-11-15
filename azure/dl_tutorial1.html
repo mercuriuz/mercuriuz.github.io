@@ -29,7 +29,171 @@
             <small>Created by <a href="https://github.com/mercuriuz">郝志鹏</a><a href="mailto:zhipenghao930930@gmail.com">@zhipeng</a></small>
           </p>
         </section>
-
+        <section>
+          <h3>机器学习算法</h3>
+          <p>
+            <blockquote cite="">
+            &ldquo;对于任务T和性能度量P，该程序可以从经验E中学习，指的是经验E改进后，它在任务T上由P衡量的性能也会有所提升。&rdquo;
+          </blockquote>
+          </p>
+        </section>
+        <section>
+          <section>
+            <h3>机器学习的任务</h3>
+              <p>
+                <ul>
+                  <li>自然语言处理</li>
+                  <li>图像处理</li>
+                  <li>语音识别</li>
+                </ul>
+              </p>
+          </section>
+          <section>
+            <h3>自然语言处理</h3>
+            <p>
+              <ul>
+                <li>机器翻译</li>
+                <li>文本分类</li>
+                <li>问答</li>
+                <li>命名实体识别</li>
+                <li>...</li>
+              </ul>
+            </p>
+          </section>
+          <section>
+            <h3>图像识别</h3>
+            <p>
+              <ul>
+                <li>物体识别</li>
+                <li>图像推理</li>
+                <li>物体追踪</li>
+                <li>...</li>
+              </ul>
+            </p>
+          </section>
+          <section>
+            <h3>语音识别</h3>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>性能度量</h3>
+          <p>
+            <ul>
+              <li>accuracy</li>
+              <li>precision</li>
+              <li>recall</li>
+            </ul>
+          </p>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ![a](pic1.png)
+            </script>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>经验</h3>
+            <p>
+              <ul>
+                <li>有监督学习</li>
+                <li>无监督学习</li>
+              </ul>
+            </p>
+          </section>
+          <section>
+            <h3>无监督学习</h3>
+            <p>
+              \[p(\mathbf{x})=\prod_{i=1}^{n}p(x_i|x_1, ..., x_{i-1})\]
+            </p>
+          </section>
+           <section>
+            <h3>有监督学习</h3>
+            <p>
+              \[
+                p(y|\mathbf{x})=\frac{p(\mathbf{x},y)}{\sum_{}^{} p(\mathbf{x}, y)}
+              \]
+            </p>
+          </section>
+        </section>
+        <section>
+          <h3>评价机器学习算法</h3>
+          <p>
+            我们遇到的主要挑战是在未观测的数据集上能取得良好的表现。所以我们一般将数据分为训练集和测试集，由此也会有训练误差和测试误差。
+          </p>
+        </section>
+        <section>
+          <h3>过拟合和欠拟合</h3>
+          <p>
+            <ul>
+              <li>欠拟合: 模型在测试数据上误差太高</li>
+              <li>过拟合: 模型的训练误差和测试误差差别太大</li>
+            </ul>
+          </p>
+        </section>
+        <section>
+          <section>
+            <h3>减少欠拟合</h3>
+            <p>
+              <ul>
+                <li>正则化方法</li>
+                <li>交叉验证</li>
+              </ul>
+            </p>
+          </section>
+          <section>
+            <h3>正则化</h3>
+            <p>
+              \[
+                \mathbf{J}(\mathbf{\theta})=MSE + \lambda \mathbf{\theta}^{T}\mathbf{\theta}
+              \]
+            </p>
+          </section>
+          <section>
+            <h3>交叉验证</h3>
+            <p>
+              将训练集分为k个子集，每次训练取其中一份为测试集，其他为训练集，进行k次实验。
+            </p>
+          </section>
+        </section>
+        <section>
+          <h3>样本估计</h3>
+          <p>
+            <ul>
+              <li>无偏性</li>
+              <li>一致性</li>
+              <li>效率：CRLB</li>
+            </ul>
+          </p>
+        </section>
+        <section>
+          <h3>方差的无偏估计</h3>
+          <p>
+            <small>
+                \[
+                  \mathbb{E}[\hat{\sigma}_{m}^{2}] = \mathbb{E}[\frac{1}{m}
+                  \sum_{i=1}^{m}(x^{i}-\hat{\mu})^2] \\
+                  = \mathbb{E}[\frac{1}{m}
+                  \sum_{i=1}^{m}((x^{i}- \mu) + (\mu - \hat{\mu}))^2] \\
+                  = \mathbb{E} {\frac{1}{m}\sum_{i=1}^{m}[(x^{i}-\mu)^2 + 2(x^{i}-\mu)(\mu-\hat{\mu}) + (\mu - \hat{\mu})^2] } \\
+                  = \mathbb{E}[\frac{1}{m}\sum_{i=1}^{m}(x^i - \mu)^2 + 2(\hat{\mu}-\mu)(\mu - \hat{\mu}) + (\mu-\hat{\mu})^2] \\
+                  = \mathbb{E}[\frac{1}{m}\sum_{i=1}^{m}(x^i - \mu)^2 - (\mu - \hat{\mu})]
+                  = \frac{n-1}{n}\sigma^2
+                \]
+            </small>
+          </p>
+        </section>
+        <section>
+          <h3>小结</h3>
+          <p>
+            <ul>
+              <li>机器学习是建立在数据上的</li>
+              <li>引入超参数会帮助我们减少过拟合，但是超参数的调参会提高复杂程度</li>
+              <li>下次我们将讲解最大似然估计和贝叶斯估计</li>
+            </ul>
+          </p>
+        </section>
       </div>
     </div>
 
@@ -42,7 +206,12 @@
           history: true,
           center: true,
 
-          transition: 'slide',
+          transition: 'linear',
+
+          math: {
+          // mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full'
+          },
 
           dependencies: [
           { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -50,7 +219,8 @@
           { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: '../plugin/zoom-js/zoom.js', async: true },
-          { src: '../plugin/notes/notes.js', async: true }
+          { src: '../plugin/notes/notes.js', async: true },
+          { src: '../plugin/math/math.js', async: true }
         ]
         });
     </script>
